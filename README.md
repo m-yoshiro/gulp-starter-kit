@@ -37,5 +37,5 @@ gulp serve # localhost:3000
 
 ## Inspiration
 以下のrepositoryを参考にさせていただきました。
-https://github.com/google/web-starter-kit
-https://github.com/vwxyutarooo/gulp-web-starter
+[google/web-starter-kit](https://github.com/google/web-starter-kit)
+[vwxyutarooo/gulp-web-starter](https://github.com/vwxyutarooo/gulp-web-starter)

@@ -1,0 +1,13 @@
+# files
+*~
+*.swp
+.DS_Store
+*.sass-cache
+*.seed
+*.diff
+*.err
+
+# directory
+log/
+node_modules/
+/dist

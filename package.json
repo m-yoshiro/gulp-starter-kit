@@ -1,0 +1,29 @@
+{
+  "name": "gulp-starter-kit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "eslint": "^2.4.0",
+    "eslint-config-google": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-slim": "^0.3.0",
+    "node-hologram": "^0.1.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5"
+  },
+  "eslintConfig": {
+    "extends": "google"
+  }
+}

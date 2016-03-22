@@ -12,7 +12,7 @@ import browserSync from 'browser-sync';
 import requireDir from 'require-dir';
 import * as yaml  from 'js-yaml';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import hologram from 'node-hologram';
+// import hologram from 'node-hologram';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -32,36 +32,11 @@ const PATHS = (() => {
   }
 })();
 
-// styleguide setting
-const hologramOpt = (() => {
-  try {
-    const doc = yaml.safeLoad(fs.readFileSync(`${__dirname}/styleguide.yml`, 'utf8'));
-    return doc;
-  } catch (e) {
-    console.log(e);
-  }
-})();
 
 // =================================
 // # tasks
 // =================================
 
-
-gulp.task('check', () => {
-  console.log('check!');
-});
-
-// https://blog.raananweber.com/2015/12/15/check-if-a-directory-exists-in-node-js/
-function isExist (path, func, cb) {
-  fs.stat(path, (err, stats) => {
-    // Check path
-    if (err && err.errno === 34) {
-      func();
-    } else {
-      cb(err);
-    }
-  })
-};
 
 // --------------------------
 //  core tasks
@@ -72,7 +47,6 @@ gulp.task('init', () => {
 
   // make 'dist/' when which isn't exitst.
   fs.mkdirSync(distDir.root, (err) => {
-    // const directories = PATHS.dist;
     if (err) {
       console.log(err);
       return 1;
@@ -137,14 +111,16 @@ gulp.task('source-map', () => {
 // --------------------------
 
 gulp.task('styleguide', () => {
-  hologram(hologramOpt).init();
+  gulp.src('./hologram_config.yml')
+    .pipe($.hologram({logging:true}));
+  // hologram(hologramOpt).init();
 });
 
 // --------------------------
 //  Server
 // --------------------------
 
-gulp.task('serve', ['styles', 'temp:slim'],  () => {
+gulp.task('serve', ['styles', 'temp:slim', 'styleguide'],  () => {
   browserSync.init({
     server:{
       baseDir:PATHS.dist.root

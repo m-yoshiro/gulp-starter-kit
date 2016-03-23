@@ -16,4 +16,4 @@ dist:
     js: ./dist/js/
     images: ./dist/images/
     html: ./dist/
-    styleguide: ./dist/styleguide/
+  styleguide: ./styleguide/

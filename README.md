@@ -3,11 +3,12 @@ gulpでプロジェクトを始めるための基本構成を取りまとめた�
 
 ### Installation
 ```
+# 0. hologram, slimをインストールしてない場合
+gem install slim
+gem install hologram
+
 # 1. download
 git clone https://github.com/m-yoshiro/gulp-starter-kit
-
-# slimをインストールしてない場合
-gem install slim
 
 # 2. ダウンロード先に移動
 cd gulp-starter-kit
@@ -25,7 +26,9 @@ gulp init
 gulp
 
 # ローカルサーバの起動と監視
-gulp serve # localhost:3000
+gulp serve
+# localhost:3000 application
+# localhost:3002 styleguide
 
 ```
 
@@ -33,9 +36,12 @@ gulp serve # localhost:3000
 - sass
 - slim
 - styleguide
-[node-hologram](https://github.com/BrianDGLS/node-hologram)
+    - hologram
+    https://github.com/trulia/hologram
+    - wearecube/hologram-github-theme
+    https://github.com/wearecube/hologram-github-theme
 
 ## Inspiration
 以下のrepositoryを参考にさせていただきました。
 [google/web-starter-kit](https://github.com/google/web-starter-kit)
-[vwxyutarooo/gulp-web-starter](https://github.com/vwxyutarooo/gulp-web-starter)
+[vwxyutarooo/gulp-web-starter](https://github.com/vwxyutarooo/gulp-weba   -starter)

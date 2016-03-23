@@ -21,6 +21,7 @@
     "gulp-load-plugins": "^1.2.0",
     "gulp-sass": "^2.2.0",
     "gulp-slim": "^0.3.0",
+    "hologram-github-theme": "^0.1.4",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5"
   },

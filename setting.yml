@@ -1,19 +1,14 @@
-# root
-root: ./
-# source files
-src:
-  root: ./app/
-  assets:
-    style: ./app/styles/
-    templates: ./app/templates/
-    js: ./app/js/
-    images: ./app/images/
-# distination
+app:
+  root: app
+  style: styles
+  templates: templates
+  js: js
+  images: images
 dist:
-  root: ./dist/
-  assets:
-    style: ./dist/css/
-    js: ./dist/js/
-    images: ./dist/images/
-    html: ./dist/
-  styleguide: ./styleguide/
+  root: dist
+  style: css
+  js: js
+  images: images
+  html: dist
+styleguide:
+  root: styleguide

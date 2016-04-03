@@ -1,0 +1,17 @@
+/*doc
+---
+title: text base
+name: text base
+category:  base
+---
+
+こちらはテキストです
+
+```html_example
+    <p class='text'>Hello</p>
+```
+*/
+
+.text {
+  border: 1px solid #000;
+}

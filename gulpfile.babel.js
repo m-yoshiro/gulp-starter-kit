@@ -23,6 +23,8 @@ const brSyncStyle = browserSync.create();
 const reload = brSync.reload;
 const reloadStyle = brSyncStyle.reload;
 
+// modules created
+// import Decorater of directories
 import {APP_DIR, DIST_DIR, STYLEGUIDE_DIR} from './gulp/setting';
 
 /**
@@ -31,11 +33,11 @@ import {APP_DIR, DIST_DIR, STYLEGUIDE_DIR} from './gulp/setting';
  * --------------------------------------------------------------------------
  */
 
-// gulp.task('test', () => {
-//   console.log(APP_DIR);
-//   console.log(DIST_DIR);
-//
-// });
+gulp.task('test', () => {
+  console.log(APP_DIR);
+  console.log(DIST_DIR);
+
+});
 
 // load directories map
 
@@ -87,10 +89,34 @@ gulp.task('init', () => {
 
 
 // --------------------------
-//  stylesheets
+// stylesheets
+//
+// https://github.com/google/web-starter-kit/blob/5c3b6fb615d7dee13680087bc1a961620f96e52a/gulpfile.babel.js#L71
 gulp.task('styles', () => {
+
+  const AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ];
+
   return gulp.src(`${APP_DIR.style}**/*.scss`)
-    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.newer('.tmp/styles'))
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+       precision: 10
+     }).on('error', $.sass.logError))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe($.if('*.css', $.cssnano()))
+    .pipe($.size({title: 'styles'}))
+    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(DIST_DIR.style))
 });
 
@@ -111,6 +137,7 @@ gulp.task('styles', () => {
 // });
 
 // slime
+
 gulp.task('temp:slim', () => {
   return gulp.src(`${APP_DIR.templates}**/*.slim`)
     .pipe($.slim({
@@ -119,13 +146,6 @@ gulp.task('temp:slim', () => {
     .pipe(gulp.dest(DIST_DIR.html));
 });
 
-
-// --------------------------
-//  utility for preprocessor
-// --------------------------
-// gulp.task('source-map', () => {
-//
-// });
 
 // --------------------------
 //  styleguide node-hologram

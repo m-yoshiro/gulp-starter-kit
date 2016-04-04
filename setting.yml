@@ -6,9 +6,9 @@ app:
   images: images
 dist:
   root: dist
-  style: css
+  style: styles
   js: js
   images: images
-  html: dist
+  html: .
 styleguide:
   root: styleguide

@@ -10,11 +10,8 @@ import fs from 'fs';
 import * as yaml  from 'js-yaml';
 
 const PATHS = (() => {
-
   try {
     const doc = yaml.safeLoad(fs.readFileSync(`${process.cwd()}/setting.yml`, 'utf8'));
-
-    console.log(doc['app']);
     return doc;
   } catch (e) {
     console.log(e);
@@ -23,16 +20,13 @@ const PATHS = (() => {
 
 function pathsGenerator (dirName) {
   let dirMap = PATHS[dirName];
-    console.log(dirMap);
-  const tempPath = `${process.cwd()}/${PATHS[dirName].root}`;
-
-
+  const tempPath = `./${PATHS[dirName].root}`;
 
   for(let key in dirMap) {
     if (key === 'root') {
       dirMap[key] = tempPath;
     } else{
-      dirMap[key] = `${tempPath}/assets/${dirMap[key]}`;
+      dirMap[key] = `${tempPath}/${dirMap[key]}`;
     }
   }
 

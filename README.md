@@ -19,10 +19,9 @@ npm install
 
 ### command
 ```
-# dist/の準備
-gulp init
 
 # コンパイルの実行
+# 初回実行でdistフォルダが作成される
 gulp
 
 # ローカルサーバの起動と監視

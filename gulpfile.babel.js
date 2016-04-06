@@ -33,22 +33,11 @@ import {APP_DIR, DIST_DIR, STYLEGUIDE_DIR} from './gulp/setting';
  * --------------------------------------------------------------------------
  */
 
-gulp.task('test', () => {
-  console.log(APP_DIR);
-  console.log(DIST_DIR);
-
-});
-
-// load directories map
-
-// const PATHS = ( () => {
-//   try {
-//     const doc = yaml.safeLoad(fs.readFileSync(`${__dirname}/setting.yml`, 'utf8'));
-//     return doc;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// })();
+// gulp.task('test', () => {
+//   console.log(APP_DIR);
+//   console.log(DIST_DIR);
+//
+// });
 
 
 /**
@@ -56,37 +45,6 @@ gulp.task('test', () => {
  * Tasks
  * --------------------------------------------------------------------------
  */
-
-//  core tasks
-
-gulp.task('init', () => {
-
-  // make 'dist/' when which isn't exitst.
-  fs.mkdirSync(DIST_DIR.root, (err) => {
-    if (err) {
-      console.log(err);
-      return 1;
-    }
-  });
-
-  fs.mkdirSync(STYLEGUIDE_DIR.root, (err) => {
-    if (err) {
-      console.log(err);
-      return 1;
-    }
-  });
-
-  // make assets directories
-  for(const path in DIST_DIR) {
-    if (path !== 'root')
-    fs.mkdirSync(path, (err) => {
-      if (err) {
-        console.log(err);
-      }
-    });
-  }
-});
-
 
 // --------------------------
 // stylesheets
@@ -106,7 +64,7 @@ gulp.task('styles', () => {
     'bb >= 10'
   ];
 
-  return gulp.src(`${APP_DIR.style}**/*.scss`)
+  return gulp.src(`${APP_DIR.style}/**/*.scss`)
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -139,7 +97,7 @@ gulp.task('styles', () => {
 // slime
 
 gulp.task('temp:slim', () => {
-  return gulp.src(`${APP_DIR.templates}**/*.slim`)
+  return gulp.src(`${APP_DIR.templates}/**/*.slim`)
     .pipe($.slim({
       pretty: true
     }))

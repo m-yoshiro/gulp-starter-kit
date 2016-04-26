@@ -106,7 +106,7 @@ gulp.task('temp:slim', () => {
 
 
 // --------------------------
-//  styleguide node-hologram
+//  styleguide
 // --------------------------
 
 gulp.task('styleguide', () => {

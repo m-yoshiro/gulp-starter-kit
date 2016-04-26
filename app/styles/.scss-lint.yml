@@ -1,0 +1,309 @@
+scss_files: "**/*.scss"
+
+# Default severity of all linters.
+severity: warning
+
+linters:
+  # !の前にスペースをとる
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
+  # BEMでのセレクタ名の長さ
+  BemDepth:
+    enabled: false
+    max_elements: 1
+
+  # border無しの時の表記法
+  BorderZero:
+    enabled: true
+    convention: zero # or `none`
+
+  # クラス名の連結を監視
+  ChainedClasses:
+    enabled: false
+
+  # cssのカラーキワード(greenなど)を禁止
+  ColorKeyword:
+    enabled: true
+
+  # カラーを変数定義しての使用を推奨する
+  ColorVariable:
+    enabled: true
+
+  # コメントは//を使う
+  Comment:
+    enabled: true
+    style: silent
+
+  # @debugの状態を通知
+  DebugStatement:
+    enabled: true
+
+  # @extend, @includeはネスト内の最初で宣言する
+  DeclarationOrder:
+    enabled: true
+
+  # linterがDisabledになってる理由を記載
+  DisableLinterReason:
+    enabled: false
+
+
+  # 同一ルールセット内でプロパティの重複を禁止
+  DuplicateProperty:
+    enabled: true
+
+  # @elseで改行するか否か
+  ElsePlacement:
+    enabled: true
+    style: same_line # or 'new_line'
+
+  # ブロック間を改行であける
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: true
+
+  # 空のルールセットを禁止
+  EmptyRule:
+    enabled: true
+
+  # @extendを禁止
+  ExtendDirective:
+    enabled: false
+
+  # 最後に改行
+  FinalNewline:
+    enabled: true
+    present: true
+
+  # カラー(16進数)の長さ
+  HexLength:
+    enabled: true
+    style: short # or 'long'
+
+  # カラー(16進数)の大文字小文字を統一
+  HexNotation:
+    enabled: true
+    style: lowercase # or 'uppercase'
+
+  # カラー(16進数)の表記が間違ってる
+  HexValidation:
+    enabled: true
+
+  # IDセレクタを禁止
+  IdSelector:
+    enabled: true
+
+  # importantを禁止
+  ImportantRule:
+    enabled: true
+
+  # importpathの_と拡張子を省略
+  ImportPath:
+    enabled: true
+    leading_underscore: false
+    filename_extension: false
+
+  # indentの幅と種類を指定
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: space # or 'tab'
+    width: 2
+
+  # 小数点の0を省略
+  LeadingZero:
+    enabled: true
+    style: exclude_zero # or 'include_zero'
+
+  # 同じセレクタはまとめる
+  MergeableSelector:
+    enabled: true
+    force_nesting: true # ネストもまとめる
+
+  # mixinやfunction名の表記指定
+  NameFormat:
+    enabled: true
+    allow_leading_underscore: true
+    convention: hyphenated_lowercase # or 'camel_case', or 'snake_case', or a regex pattern
+
+  # 過度のネストを禁止
+  NestingDepth:
+    enabled: true
+    max_depth: 3
+    ignore_parent_selectors: false
+
+  # extendで%以外(class)の使用を禁止
+  PlaceholderInExtend:
+    enabled: true
+
+  # プライベート変数はネスト外の使用箇所より前で宣言
+  PrivateNamingConvention:
+    enabled: false
+    prefix: _
+
+  # 一つのルールセット内でのプロパティ数を制限
+  PropertyCount:
+    enabled: false
+    include_nested: false
+    max_properties: 10
+
+  # プロパティの並び順を制限
+  PropertySortOrder:
+    enabled: true
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
+
+  # 誤った、または未知のプロパティ名を指摘
+  PropertySpelling:
+    enabled: true
+    extra_properties: [] # 指摘から除外
+    disabled_properties: [] # チェックリストを追加
+
+  # 使用可能な単位を設定
+  PropertyUnits:
+    enabled: true
+    global: [
+      'ch', 'em', 'ex', 'rem',                 # Font-relative lengths
+      'cm', 'in', 'mm', 'pc', 'pt', 'px', 'q', # Absolute lengths
+      'vh', 'vw', 'vmin', 'vmax',              # Viewport-percentage lengths
+      'deg', 'grad', 'rad', 'turn',            # Angle
+      'ms', 's',                               # Duration
+      'Hz', 'kHz',                             # Frequency
+      'dpi', 'dpcm', 'dppx',                   # Resolution
+      '%']                                     # Other
+    properties: {} # プロパティ毎に単位を指定
+
+  # 擬似要素はcolon2つ(擬似クラスと区別するため)
+  PseudoElement:
+    enabled: true
+
+  # セレクタにネストされた要素に直に指定を禁止
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
+
+  # セレクタの過度な連結を規制
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
+
+  # 命名ルールを設定
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_lowercase # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+
+  # ショートハンドに使用を制限
+  Shorthand:
+    enabled: true
+    allowed_shorthands: [1, 2, 3]
+
+  # プロパティは改行して記述
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: true
+
+  # 複数セレクタを改行して記述
+  SingleLinePerSelector:
+    enabled: true
+
+  # コンマのあとにスペース
+  SpaceAfterComma:
+    enabled: true
+    style: one_space # or 'no_space', or 'at_least_one_space'
+
+  # :のあとにスペース
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: one_space # or 'no_space', or 'at_least_one_space', or 'aligned'
+
+  # プロパティ名のあとのスペースを指定
+  SpaceAfterPropertyName:
+    enabled: true
+
+  # 変数のコロン後のスペースを指定
+  SpaceAfterVariableColon:
+    enabled: false
+    style: one_space # or 'no_space', 'at_least_one_space' or 'one_space_or_newline'
+
+  # 変数名のあとのスペースを指定
+  SpaceAfterVariableName:
+    enabled: true
+
+  # 演算子周りのスペースを指定
+  SpaceAroundOperator:
+    enabled: true
+    style: one_space # or 'at_least_one_space', or 'no_space'
+
+  # カッコ前のスペースを指定
+  SpaceBeforeBrace:
+    enabled: true
+    style: space # or 'new_line'
+    allow_single_line_padding: false
+
+  # 丸カッコの内部の両端のスペースを指定
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  # クウォートをシングルに限定
+  StringQuotes:
+    enabled: true
+    style: single_quotes # or double_quotes
+
+  # セミコロンを設置かつスペースあける
+  TrailingSemicolon:
+    enabled: true
+
+  # 行末のスペースを警告
+  TrailingWhitespace:
+    enabled: true
+
+  # 小数の不要な末のゼロを禁止
+  TrailingZero:
+    enabled: false
+
+  # transitionのallは禁止して明示的に記載させる
+  TransitionAll:
+    enabled: false
+
+  # 自然数の不要な小数表記を禁止
+  UnnecessaryMantissa:
+    enabled: true
+
+  # &による親の不要な指定を禁止
+  UnnecessaryParentReference:
+    enabled: true
+
+  # Urlは相対パスで指定する
+  UrlFormat:
+    enabled: true
+
+  # Url指定はシングルクォートで囲う
+  UrlQuotes:
+    enabled: true
+
+  # プロパティは変数を使用する
+  VariableForProperty:
+    enabled: false
+    properties: [] # 適用するプロパティを個別に設定可能
+
+
+  # ベンダープレフィクスを禁止（出力でカバーするためAutoprefixer等の使用が必要）
+  VendorPrefix:
+    enabled: true
+    identifier_list: base
+    additional_identifiers: []
+    excluded_identifiers: []
+
+  # 0に単位をつけない
+  ZeroUnit:
+    enabled: true
+
+  # コンパスを使用する
+  Compass::*:
+    enabled: false
